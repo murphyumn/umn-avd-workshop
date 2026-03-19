@@ -1,0 +1,13 @@
+Type,Node,Node Interface,Leaf IP Address,Peer Type,Peer Node,Peer Interface,Peer IP Address
+l3leaf,AOC-DB-1,Ethernet2,172.16.1.17/31,spine,AOC-DS-1,Ethernet7,172.16.1.16/31
+l3leaf,AOC-DB-1,Ethernet3,172.16.1.19/31,spine,AOC-DS-2,Ethernet7,172.16.1.18/31
+l3leaf,AOC-DB-2,Ethernet2,172.16.1.21/31,spine,AOC-DS-1,Ethernet8,172.16.1.20/31
+l3leaf,AOC-DB-2,Ethernet3,172.16.1.23/31,spine,AOC-DS-2,Ethernet8,172.16.1.22/31
+l3leaf,AOC-DL-1,Ethernet2,172.16.1.9/31,spine,AOC-DS-1,Ethernet4,172.16.1.8/31
+l3leaf,AOC-DL-1,Ethernet3,172.16.1.11/31,spine,AOC-DS-2,Ethernet4,172.16.1.10/31
+l3leaf,AOC-DL-2,Ethernet2,172.16.1.13/31,spine,AOC-DS-1,Ethernet5,172.16.1.12/31
+l3leaf,AOC-DL-2,Ethernet3,172.16.1.15/31,spine,AOC-DS-2,Ethernet5,172.16.1.14/31
+spine,AOC-DS-1,Ethernet2,172.16.1.0/31,l3leaf,AOC-DV-1,Ethernet2,172.16.1.1/31
+spine,AOC-DS-1,Ethernet3,172.16.1.4/31,l3leaf,AOC-DV-2,Ethernet2,172.16.1.5/31
+spine,AOC-DS-2,Ethernet2,172.16.1.2/31,l3leaf,AOC-DV-1,Ethernet3,172.16.1.3/31
+spine,AOC-DS-2,Ethernet3,172.16.1.6/31,l3leaf,AOC-DV-2,Ethernet3,172.16.1.7/31
