@@ -15,13 +15,19 @@ pip install "pyavd[ansible]==5.7.3"
 ansible-galaxy collection install arista.avd:==5.7.3
 ```
 
-**STEP #2** - Apply base configs to Lab nodes
+**STEP #2** - Reset nodes to undefined container in CVP
+
+```bash
+make reset_to_undefined
+```
+
+**STEP #3** - Apply base configs to Lab nodes
 
 ```bash
 make preplab
 ```
 
-**STEP #3** - Export CVP Service Account token to env variable CV_TOKEN
+**STEP #4** - Export CVP Service Account token to env variable CV_TOKEN
 
 ```bash
 export CV_TOKEN=<insert token>
