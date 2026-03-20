@@ -9,10 +9,10 @@ spine:
     bgp_as: 65200
   nodes:
     - name: TelecomB-DS-1
-      id: 1
+      id: 100
       mgmt_ip: 192.168.0.20/24
     - name: TelecomB-DS-2
-      id: 2
+      id: 101
       mgmt_ip: 192.168.0.21/24
 
 # Leaf Switches
@@ -21,7 +21,7 @@ l3leaf:
     platform: cEOS
     spanning_tree_mode: mstp
     loopback_ipv4_pool: 10.250.2.0/24
-    loopback_ipv4_offset: 2
+    # loopback_ipv4_offset: 2
     vtep_loopback_ipv4_pool: 10.255.2.0/24
     uplink_switches: [ TelecomB-DS-1, TelecomB-DS-2 ]
     uplink_interfaces: [ Ethernet2, Ethernet3 ]
@@ -32,29 +32,34 @@ l3leaf:
     virtual_router_mac_address: 00:1c:73:00:00:99
   node_groups:
     - group: S2_RACK1
-      bgp_as: 65201
+      # bgp_as: 65201
+      mlag: false
       nodes:
         - name: TelecomB-DV-1
+          bgp_as: 65201
           id: 1
           mgmt_ip: 192.168.0.22/24
           uplink_switch_interfaces: [ Ethernet2, Ethernet2 ]
         - name: TelecomB-DV-2
+          bgp_as: 65202
           id: 2
           mgmt_ip: 192.168.0.23/24
           uplink_switch_interfaces: [ Ethernet3, Ethernet3 ]
     - group: S2_RACK2
-      bgp_as: 65202
+      # bgp_as: 65202
       nodes:
         - name: TelecomB-DL-1
+          bgp_as: 65203
           id: 3
           mgmt_ip: 192.168.0.24/24
           uplink_switch_interfaces: [ Ethernet4, Ethernet4 ]
         - name: TelecomB-DL-2
+          bgp_as: 65204
           id: 4
           mgmt_ip: 192.168.0.25/24
           uplink_switch_interfaces: [ Ethernet5, Ethernet5 ]
     - group: S2_BRDR
-      bgp_as: 65203
+      # bgp_as: 65203
       evpn_gateway:
         evpn_l2:
           enabled: true
@@ -63,6 +68,7 @@ l3leaf:
           inter_domain: true
       nodes:
         - name: TelecomB-DB-1
+          bgp_as: 65205
           id: 5
           mgmt_ip: 192.168.0.200/24
           uplink_switch_interfaces: [ Ethernet7, Ethernet7 ]
@@ -72,6 +78,7 @@ l3leaf:
                 bgp_as: 65103
                 ip_address: 10.250.1.7
         - name: TelecomB-DB-2
+          bgp_as: 65206
           id: 6
           mgmt_ip: 192.168.0.201/24
           uplink_switch_interfaces: [ Ethernet8, Ethernet8 ]

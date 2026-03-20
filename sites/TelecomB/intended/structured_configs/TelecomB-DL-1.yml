@@ -88,11 +88,11 @@ loopback_interfaces:
 - name: Loopback0
   description: ROUTER_ID
   shutdown: false
-  ip_address: 10.250.2.5/32
+  ip_address: 10.250.2.3/32
 - name: Loopback1
   description: VXLAN_TUNNEL_SOURCE
   shutdown: false
-  ip_address: 10.255.2.5/32
+  ip_address: 10.255.2.3/32
 management_api_http:
   enable_https: true
   enable_vrfs:
@@ -138,7 +138,10 @@ port_channel_interfaces:
 - name: Port-Channel4
   description: SERVER_TelecomB-HOST-2
   shutdown: false
-  mlag: 4
+  evpn_ethernet_segment:
+    identifier: 0000:0000:0000:0000:dddd
+    route_target: 00:00:00:00:dd:dd
+  lacp_id: 0000.0000.dddd
   spanning_tree_portfast: edge
   switchport:
     enabled: true
@@ -183,8 +186,8 @@ router_bfd:
     min_rx: 300
     multiplier: 3
 router_bgp:
-  as: '65202'
-  router_id: 10.250.2.5
+  as: '65203'
+  router_id: 10.250.2.3
   maximum_paths:
     paths: 4
     ecmp: 4
@@ -194,7 +197,7 @@ router_bgp:
   peer_groups:
   - name: MLAG-IPv4-UNDERLAY-PEER
     type: ipv4
-    remote_as: '65202'
+    remote_as: '65203'
     description: TelecomB-DL-2
     next_hop_self: true
     password: 4b21pAdCvWeAqpcKDFMdWw==
@@ -229,12 +232,12 @@ router_bgp:
     remote_as: '65200'
     peer: TelecomB-DS-2
     description: TelecomB-DS-2_Ethernet4
-  - ip_address: 10.250.2.1
+  - ip_address: 10.250.2.100
     peer_group: EVPN-OVERLAY-PEERS
     remote_as: '65200'
     peer: TelecomB-DS-1
     description: TelecomB-DS-1_Loopback0
-  - ip_address: 10.250.2.2
+  - ip_address: 10.250.2.101
     peer_group: EVPN-OVERLAY-PEERS
     remote_as: '65200'
     peer: TelecomB-DS-2
@@ -246,7 +249,7 @@ router_bgp:
   vlans:
   - id: 10
     tenant: TelecomB_FABRIC
-    rd: 10.250.2.5:10010
+    rd: 10.250.2.3:10010
     route_targets:
       both:
       - 10010:10010
@@ -254,7 +257,7 @@ router_bgp:
     - learned
   - id: 20
     tenant: TelecomB_FABRIC
-    rd: 10.250.2.5:10020
+    rd: 10.250.2.3:10020
     route_targets:
       both:
       - 10020:10020
@@ -262,7 +265,7 @@ router_bgp:
     - learned
   - id: 30
     tenant: TelecomB_FABRIC
-    rd: 10.250.2.5:10030
+    rd: 10.250.2.3:10030
     route_targets:
       both:
       - 10030:10030
@@ -270,7 +273,7 @@ router_bgp:
     - learned
   - id: 40
     tenant: TelecomB_FABRIC
-    rd: 10.250.2.5:10040
+    rd: 10.250.2.3:10040
     route_targets:
       both:
       - 10040:10040
@@ -290,7 +293,7 @@ router_bgp:
       activate: false
   vrfs:
   - name: PROD
-    rd: 10.250.2.5:50001
+    rd: 10.250.2.3:50001
     route_targets:
       import:
       - address_family: evpn
@@ -300,7 +303,7 @@ router_bgp:
       - address_family: evpn
         route_targets:
         - 50001:50001
-    router_id: 10.250.2.5
+    router_id: 10.250.2.3
     neighbors:
     - ip_address: 10.252.2.5
       peer_group: MLAG-IPv4-UNDERLAY-PEER

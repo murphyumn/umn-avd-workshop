@@ -29,6 +29,8 @@ servers:
         profile: PP-VLAN30                              # Port profile to apply (required)
         port_channel:
           mode: active
+        ethernet_segment:
+          short_esi: 0000:0000:cccc
 
 # --------------------------------------------------------#
 # TelecomB RACK2 Endpoints
@@ -43,3 +45,5 @@ servers:
         profile: PP-VLAN40                              # Port profile to apply (required)
         port_channel:
           mode: active
+        ethernet_segment:
+          short_esi: 0000:0000:dddd

@@ -398,7 +398,15 @@ interface Ethernet6
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | LACP Fallback Timeout | LACP Fallback Mode | MLAG ID | EVPN ESI |
 | --------- | ----------- | ---- | ----- | ----------- | ------------| --------------------- | ------------------ | ------- | -------- |
 | Port-Channel1 | MLAG_TelecomB-DL-2_Port-Channel1 | trunk | - | - | MLAG | - | - | - | - |
-| Port-Channel4 | SERVER_TelecomB-HOST-2 | access | 40 | - | - | - | - | 4 | - |
+| Port-Channel4 | SERVER_TelecomB-HOST-2 | access | 40 | - | - | - | - | - | 0000:0000:0000:0000:dddd |
+
+##### EVPN Multihoming
+
+####### EVPN Multihoming Summary
+
+| Interface | Ethernet Segment Identifier | Multihoming Redundancy Mode | Route Target |
+| --------- | --------------------------- | --------------------------- | ------------ |
+| Port-Channel4 | 0000:0000:0000:0000:dddd | all-active | 00:00:00:00:dd:dd |
 
 #### Port-Channel Interfaces Device Configuration
 
@@ -417,7 +425,11 @@ interface Port-Channel4
    switchport access vlan 40
    switchport mode access
    switchport
-   mlag 4
+   !
+   evpn ethernet-segment
+      identifier 0000:0000:0000:0000:dddd
+      route-target import 00:00:00:00:dd:dd
+   lacp system-id 0000.0000.dddd
    spanning-tree portfast
 ```
 
@@ -429,8 +441,8 @@ interface Port-Channel4
 
 | Interface | Description | VRF | IP Address |
 | --------- | ----------- | --- | ---------- |
-| Loopback0 | ROUTER_ID | default | 10.250.2.5/32 |
-| Loopback1 | VXLAN_TUNNEL_SOURCE | default | 10.255.2.5/32 |
+| Loopback0 | ROUTER_ID | default | 10.250.2.3/32 |
+| Loopback1 | VXLAN_TUNNEL_SOURCE | default | 10.255.2.3/32 |
 
 ##### IPv6
 
@@ -446,12 +458,12 @@ interface Port-Channel4
 interface Loopback0
    description ROUTER_ID
    no shutdown
-   ip address 10.250.2.5/32
+   ip address 10.250.2.3/32
 !
 interface Loopback1
    description VXLAN_TUNNEL_SOURCE
    no shutdown
-   ip address 10.255.2.5/32
+   ip address 10.255.2.3/32
 ```
 
 ### VLAN Interfaces
@@ -644,7 +656,7 @@ ASN Notation: asplain
 
 | BGP AS | Router ID |
 | ------ | --------- |
-| 65202 | 10.250.2.5 |
+| 65203 | 10.250.2.3 |
 
 | BGP Tuning |
 | ---------- |
@@ -677,7 +689,7 @@ ASN Notation: asplain
 | Settings | Value |
 | -------- | ----- |
 | Address Family | ipv4 |
-| Remote AS | 65202 |
+| Remote AS | 65203 |
 | Next-hop self | True |
 | Send community | all |
 | Maximum routes | 12000 |
@@ -686,8 +698,8 @@ ASN Notation: asplain
 
 | Neighbor | Remote AS | VRF | Shutdown | Send-community | Maximum-routes | Allowas-in | BFD | RIB Pre-Policy Retain | Route-Reflector Client | Passive | TTL Max Hops |
 | -------- | --------- | --- | -------- | -------------- | -------------- | ---------- | --- | --------------------- | ---------------------- | ------- | ------------ |
-| 10.250.2.1 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
-| 10.250.2.2 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.250.2.100 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.250.2.101 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
 | 10.252.2.5 | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | default | - | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | - | - | - | - | - | - |
 | 172.16.2.8 | 65200 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 | 172.16.2.10 | 65200 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
@@ -705,23 +717,23 @@ ASN Notation: asplain
 
 | VLAN | Route-Distinguisher | Both Route-Target | Import Route Target | Export Route-Target | Redistribute |
 | ---- | ------------------- | ----------------- | ------------------- | ------------------- | ------------ |
-| 10 | 10.250.2.5:10010 | 10010:10010 | - | - | learned |
-| 20 | 10.250.2.5:10020 | 10020:10020 | - | - | learned |
-| 30 | 10.250.2.5:10030 | 10030:10030 | - | - | learned |
-| 40 | 10.250.2.5:10040 | 10040:10040 | - | - | learned |
+| 10 | 10.250.2.3:10010 | 10010:10010 | - | - | learned |
+| 20 | 10.250.2.3:10020 | 10020:10020 | - | - | learned |
+| 30 | 10.250.2.3:10030 | 10030:10030 | - | - | learned |
+| 40 | 10.250.2.3:10040 | 10040:10040 | - | - | learned |
 
 #### Router BGP VRFs
 
 | VRF | Route-Distinguisher | Redistribute | Graceful Restart |
 | --- | ------------------- | ------------ | ---------------- |
-| PROD | 10.250.2.5:50001 | connected | - |
+| PROD | 10.250.2.3:50001 | connected | - |
 
 #### Router BGP Device Configuration
 
 ```eos
 !
-router bgp 65202
-   router-id 10.250.2.5
+router bgp 65203
+   router-id 10.250.2.3
    no bgp default ipv4-unicast
    maximum-paths 4 ecmp 4
    neighbor EVPN-OVERLAY-PEERS peer group
@@ -736,19 +748,19 @@ router bgp 65202
    neighbor IPv4-UNDERLAY-PEERS send-community
    neighbor IPv4-UNDERLAY-PEERS maximum-routes 12000
    neighbor MLAG-IPv4-UNDERLAY-PEER peer group
-   neighbor MLAG-IPv4-UNDERLAY-PEER remote-as 65202
+   neighbor MLAG-IPv4-UNDERLAY-PEER remote-as 65203
    neighbor MLAG-IPv4-UNDERLAY-PEER next-hop-self
    neighbor MLAG-IPv4-UNDERLAY-PEER description TelecomB-DL-2
    neighbor MLAG-IPv4-UNDERLAY-PEER route-map RM-MLAG-PEER-IN in
    neighbor MLAG-IPv4-UNDERLAY-PEER password 7 <removed>
    neighbor MLAG-IPv4-UNDERLAY-PEER send-community
    neighbor MLAG-IPv4-UNDERLAY-PEER maximum-routes 12000
-   neighbor 10.250.2.1 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.250.2.1 remote-as 65200
-   neighbor 10.250.2.1 description TelecomB-DS-1_Loopback0
-   neighbor 10.250.2.2 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.250.2.2 remote-as 65200
-   neighbor 10.250.2.2 description TelecomB-DS-2_Loopback0
+   neighbor 10.250.2.100 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.250.2.100 remote-as 65200
+   neighbor 10.250.2.100 description TelecomB-DS-1_Loopback0
+   neighbor 10.250.2.101 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.250.2.101 remote-as 65200
+   neighbor 10.250.2.101 description TelecomB-DS-2_Loopback0
    neighbor 10.252.2.5 peer group MLAG-IPv4-UNDERLAY-PEER
    neighbor 10.252.2.5 description TelecomB-DL-2_Vlan4093
    neighbor 172.16.2.8 peer group IPv4-UNDERLAY-PEERS
@@ -760,22 +772,22 @@ router bgp 65202
    redistribute connected route-map RM-CONN-2-BGP
    !
    vlan 10
-      rd 10.250.2.5:10010
+      rd 10.250.2.3:10010
       route-target both 10010:10010
       redistribute learned
    !
    vlan 20
-      rd 10.250.2.5:10020
+      rd 10.250.2.3:10020
       route-target both 10020:10020
       redistribute learned
    !
    vlan 30
-      rd 10.250.2.5:10030
+      rd 10.250.2.3:10030
       route-target both 10030:10030
       redistribute learned
    !
    vlan 40
-      rd 10.250.2.5:10040
+      rd 10.250.2.3:10040
       route-target both 10040:10040
       redistribute learned
    !
@@ -788,10 +800,10 @@ router bgp 65202
       neighbor MLAG-IPv4-UNDERLAY-PEER activate
    !
    vrf PROD
-      rd 10.250.2.5:50001
+      rd 10.250.2.3:50001
       route-target import evpn 50001:50001
       route-target export evpn 50001:50001
-      router-id 10.250.2.5
+      router-id 10.250.2.3
       neighbor 10.252.2.5 peer group MLAG-IPv4-UNDERLAY-PEER
       neighbor 10.252.2.5 description TelecomB-DL-2_Vlan3001
       redistribute connected route-map RM-CONN-2-BGP-VRFS

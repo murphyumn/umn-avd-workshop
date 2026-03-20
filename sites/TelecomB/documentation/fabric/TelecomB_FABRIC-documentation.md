@@ -53,8 +53,6 @@
 | spine | TelecomB-DS-1 | Ethernet3 | l3leaf | TelecomB-DV-2 | Ethernet2 |
 | spine | TelecomB-DS-2 | Ethernet2 | l3leaf | TelecomB-DV-1 | Ethernet3 |
 | spine | TelecomB-DS-2 | Ethernet3 | l3leaf | TelecomB-DV-2 | Ethernet3 |
-| l3leaf | TelecomB-DV-1 | Ethernet1 | mlag_peer | TelecomB-DV-2 | Ethernet1 |
-| l3leaf | TelecomB-DV-1 | Ethernet6 | mlag_peer | TelecomB-DV-2 | Ethernet6 |
 
 ## Fabric IP Allocation
 
@@ -91,14 +89,14 @@
 
 | POD | Node | Loopback0 |
 | --- | ---- | --------- |
-| TelecomB_FABRIC | TelecomB-DB-1 | 10.250.2.7/32 |
-| TelecomB_FABRIC | TelecomB-DB-2 | 10.250.2.8/32 |
-| TelecomB_FABRIC | TelecomB-DL-1 | 10.250.2.5/32 |
-| TelecomB_FABRIC | TelecomB-DL-2 | 10.250.2.6/32 |
-| TelecomB_FABRIC | TelecomB-DS-1 | 10.250.2.1/32 |
-| TelecomB_FABRIC | TelecomB-DS-2 | 10.250.2.2/32 |
-| TelecomB_FABRIC | TelecomB-DV-1 | 10.250.2.3/32 |
-| TelecomB_FABRIC | TelecomB-DV-2 | 10.250.2.4/32 |
+| TelecomB_FABRIC | TelecomB-DB-1 | 10.250.2.5/32 |
+| TelecomB_FABRIC | TelecomB-DB-2 | 10.250.2.6/32 |
+| TelecomB_FABRIC | TelecomB-DL-1 | 10.250.2.3/32 |
+| TelecomB_FABRIC | TelecomB-DL-2 | 10.250.2.4/32 |
+| TelecomB_FABRIC | TelecomB-DS-1 | 10.250.2.100/32 |
+| TelecomB_FABRIC | TelecomB-DS-2 | 10.250.2.101/32 |
+| TelecomB_FABRIC | TelecomB-DV-1 | 10.250.2.1/32 |
+| TelecomB_FABRIC | TelecomB-DV-2 | 10.250.2.2/32 |
 
 ### VTEP Loopback VXLAN Tunnel Source Interfaces (VTEPs Only)
 
@@ -110,9 +108,9 @@
 
 | POD | Node | Loopback1 |
 | --- | ---- | --------- |
-| TelecomB_FABRIC | TelecomB-DB-1 | 10.255.2.7/32 |
-| TelecomB_FABRIC | TelecomB-DB-2 | 10.255.2.7/32 |
-| TelecomB_FABRIC | TelecomB-DL-1 | 10.255.2.5/32 |
-| TelecomB_FABRIC | TelecomB-DL-2 | 10.255.2.5/32 |
-| TelecomB_FABRIC | TelecomB-DV-1 | 10.255.2.3/32 |
-| TelecomB_FABRIC | TelecomB-DV-2 | 10.255.2.3/32 |
+| TelecomB_FABRIC | TelecomB-DB-1 | 10.255.2.5/32 |
+| TelecomB_FABRIC | TelecomB-DB-2 | 10.255.2.5/32 |
+| TelecomB_FABRIC | TelecomB-DL-1 | 10.255.2.3/32 |
+| TelecomB_FABRIC | TelecomB-DL-2 | 10.255.2.3/32 |
+| TelecomB_FABRIC | TelecomB-DV-1 | 10.255.2.1/32 |
+| TelecomB_FABRIC | TelecomB-DV-2 | 10.255.2.2/32 |

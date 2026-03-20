@@ -321,7 +321,7 @@ interface Ethernet8
 
 | Interface | Description | VRF | IP Address |
 | --------- | ----------- | --- | ---------- |
-| Loopback0 | ROUTER_ID | default | 10.250.2.1/32 |
+| Loopback0 | ROUTER_ID | default | 10.250.2.100/32 |
 
 ##### IPv6
 
@@ -336,7 +336,7 @@ interface Ethernet8
 interface Loopback0
    description ROUTER_ID
    no shutdown
-   ip address 10.250.2.1/32
+   ip address 10.250.2.100/32
 ```
 
 ## Routing
@@ -397,7 +397,7 @@ ASN Notation: asplain
 
 | BGP AS | Router ID |
 | ------ | --------- |
-| 65200 | 10.250.2.1 |
+| 65200 | 10.250.2.100 |
 
 | BGP Tuning |
 | ---------- |
@@ -430,18 +430,18 @@ ASN Notation: asplain
 
 | Neighbor | Remote AS | VRF | Shutdown | Send-community | Maximum-routes | Allowas-in | BFD | RIB Pre-Policy Retain | Route-Reflector Client | Passive | TTL Max Hops |
 | -------- | --------- | --- | -------- | -------------- | -------------- | ---------- | --- | --------------------- | ---------------------- | ------- | ------------ |
-| 10.250.2.3 | 65201 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
-| 10.250.2.4 | 65201 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
-| 10.250.2.5 | 65202 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
-| 10.250.2.6 | 65202 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
-| 10.250.2.7 | 65203 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
-| 10.250.2.8 | 65203 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.250.2.1 | 65201 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.250.2.2 | 65202 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.250.2.3 | 65203 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.250.2.4 | 65204 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.250.2.5 | 65205 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.250.2.6 | 65206 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
 | 172.16.2.1 | 65201 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
-| 172.16.2.5 | 65201 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
-| 172.16.2.9 | 65202 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
-| 172.16.2.13 | 65202 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
-| 172.16.2.17 | 65203 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
-| 172.16.2.21 | 65203 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 172.16.2.5 | 65202 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 172.16.2.9 | 65203 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 172.16.2.13 | 65204 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 172.16.2.17 | 65205 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 172.16.2.21 | 65206 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 
 #### Router BGP EVPN Address Family
 
@@ -456,7 +456,7 @@ ASN Notation: asplain
 ```eos
 !
 router bgp 65200
-   router-id 10.250.2.1
+   router-id 10.250.2.100
    no bgp default ipv4-unicast
    maximum-paths 4 ecmp 4
    neighbor EVPN-OVERLAY-PEERS peer group
@@ -471,41 +471,41 @@ router bgp 65200
    neighbor IPv4-UNDERLAY-PEERS password 7 <removed>
    neighbor IPv4-UNDERLAY-PEERS send-community
    neighbor IPv4-UNDERLAY-PEERS maximum-routes 12000
+   neighbor 10.250.2.1 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.250.2.1 remote-as 65201
+   neighbor 10.250.2.1 description TelecomB-DV-1_Loopback0
+   neighbor 10.250.2.2 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.250.2.2 remote-as 65202
+   neighbor 10.250.2.2 description TelecomB-DV-2_Loopback0
    neighbor 10.250.2.3 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.250.2.3 remote-as 65201
-   neighbor 10.250.2.3 description TelecomB-DV-1_Loopback0
+   neighbor 10.250.2.3 remote-as 65203
+   neighbor 10.250.2.3 description TelecomB-DL-1_Loopback0
    neighbor 10.250.2.4 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.250.2.4 remote-as 65201
-   neighbor 10.250.2.4 description TelecomB-DV-2_Loopback0
+   neighbor 10.250.2.4 remote-as 65204
+   neighbor 10.250.2.4 description TelecomB-DL-2_Loopback0
    neighbor 10.250.2.5 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.250.2.5 remote-as 65202
-   neighbor 10.250.2.5 description TelecomB-DL-1_Loopback0
+   neighbor 10.250.2.5 remote-as 65205
+   neighbor 10.250.2.5 description TelecomB-DB-1_Loopback0
    neighbor 10.250.2.6 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.250.2.6 remote-as 65202
-   neighbor 10.250.2.6 description TelecomB-DL-2_Loopback0
-   neighbor 10.250.2.7 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.250.2.7 remote-as 65203
-   neighbor 10.250.2.7 description TelecomB-DB-1_Loopback0
-   neighbor 10.250.2.8 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.250.2.8 remote-as 65203
-   neighbor 10.250.2.8 description TelecomB-DB-2_Loopback0
+   neighbor 10.250.2.6 remote-as 65206
+   neighbor 10.250.2.6 description TelecomB-DB-2_Loopback0
    neighbor 172.16.2.1 peer group IPv4-UNDERLAY-PEERS
    neighbor 172.16.2.1 remote-as 65201
    neighbor 172.16.2.1 description TelecomB-DV-1_Ethernet2
    neighbor 172.16.2.5 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.16.2.5 remote-as 65201
+   neighbor 172.16.2.5 remote-as 65202
    neighbor 172.16.2.5 description TelecomB-DV-2_Ethernet2
    neighbor 172.16.2.9 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.16.2.9 remote-as 65202
+   neighbor 172.16.2.9 remote-as 65203
    neighbor 172.16.2.9 description TelecomB-DL-1_Ethernet2
    neighbor 172.16.2.13 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.16.2.13 remote-as 65202
+   neighbor 172.16.2.13 remote-as 65204
    neighbor 172.16.2.13 description TelecomB-DL-2_Ethernet2
    neighbor 172.16.2.17 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.16.2.17 remote-as 65203
+   neighbor 172.16.2.17 remote-as 65205
    neighbor 172.16.2.17 description TelecomB-DB-1_Ethernet2
    neighbor 172.16.2.21 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.16.2.21 remote-as 65203
+   neighbor 172.16.2.21 remote-as 65206
    neighbor 172.16.2.21 description TelecomB-DB-2_Ethernet2
    redistribute connected route-map RM-CONN-2-BGP
    !
