@@ -1,0 +1,13 @@
+Type,Node,Node Interface,Leaf IP Address,Peer Type,Peer Node,Peer Interface,Peer IP Address
+l3leaf,TelecomB-DB-1,Ethernet2,172.16.2.17/31,spine,TelecomB-DS-1,Ethernet7,172.16.2.16/31
+l3leaf,TelecomB-DB-1,Ethernet3,172.16.2.19/31,spine,TelecomB-DS-2,Ethernet7,172.16.2.18/31
+l3leaf,TelecomB-DB-2,Ethernet2,172.16.2.21/31,spine,TelecomB-DS-1,Ethernet8,172.16.2.20/31
+l3leaf,TelecomB-DB-2,Ethernet3,172.16.2.23/31,spine,TelecomB-DS-2,Ethernet8,172.16.2.22/31
+l3leaf,TelecomB-DL-1,Ethernet2,172.16.2.9/31,spine,TelecomB-DS-1,Ethernet4,172.16.2.8/31
+l3leaf,TelecomB-DL-1,Ethernet3,172.16.2.11/31,spine,TelecomB-DS-2,Ethernet4,172.16.2.10/31
+l3leaf,TelecomB-DL-2,Ethernet2,172.16.2.13/31,spine,TelecomB-DS-1,Ethernet5,172.16.2.12/31
+l3leaf,TelecomB-DL-2,Ethernet3,172.16.2.15/31,spine,TelecomB-DS-2,Ethernet5,172.16.2.14/31
+spine,TelecomB-DS-1,Ethernet2,172.16.2.0/31,l3leaf,TelecomB-DV-1,Ethernet2,172.16.2.1/31
+spine,TelecomB-DS-1,Ethernet3,172.16.2.4/31,l3leaf,TelecomB-DV-2,Ethernet2,172.16.2.5/31
+spine,TelecomB-DS-2,Ethernet2,172.16.2.2/31,l3leaf,TelecomB-DV-1,Ethernet3,172.16.2.3/31
+spine,TelecomB-DS-2,Ethernet3,172.16.2.6/31,l3leaf,TelecomB-DV-2,Ethernet3,172.16.2.7/31
