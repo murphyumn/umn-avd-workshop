@@ -9,7 +9,7 @@
       ansible.builtin.import_role:
         name: arista.avd.cv_deploy
       vars:
-        cv_run_change_control: False
+        cv_run_change_control: True
         # Export token using 'export CV_TOKEN=<generated token here>'
         # cv_token: "{{ lookup('env', 'CV_TOKEN') }}"
         # cv_server: cvp
