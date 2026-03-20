@@ -1,6 +1,6 @@
 # University of Minnesota AVD Workshop
 
-## ATD Dual Datacenter Topology
+## ATD Dual Datacenter Topology - Active/Active Multihoming
 
 The ATD lab is used to create the L3LS EVPN/VXLAN Dual Data Center topology below.
 
