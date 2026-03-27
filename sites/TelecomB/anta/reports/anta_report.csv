@@ -1,0 +1,279 @@
+Device,Test Name,Test Status,Message(s),Test description,Test category
+TelecomB-DB-1,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
+TelecomB-DB-1,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+TelecomB-DB-1,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+TelecomB-DB-1,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+TelecomB-DB-1,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+TelecomB-DB-1,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+TelecomB-DB-1,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on cEOSLab,Verifies the status of power supply fans and all fan trays.,Hardware
+TelecomB-DB-1,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on cEOSLab,Verifies the power supplies state and input voltage.,Hardware
+TelecomB-DB-1,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on cEOSLab,Verifies the device's system cooling status.,Hardware
+TelecomB-DB-1,VerifyTemperature,skipped,VerifyTemperature test is not supported on cEOSLab,Verifies if the device temperature is within acceptable limits.,Hardware
+TelecomB-DB-1,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on cEOSLab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+TelecomB-DB-1,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+TelecomB-DB-1,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+TelecomB-DB-1,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+TelecomB-DB-1,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+TelecomB-DB-1,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+TelecomB-DB-1,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+TelecomB-DB-1,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+TelecomB-DB-1,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on cEOSLab,Verifies there are no interface storm-control drop counters.,Interfaces
+TelecomB-DB-1,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Mar 27 12:37:10 ea7de1b5c8eb NorCalInit: %HARDWARE-0-SYSTEM_IDENTIFICATION_FAILED: Failed to identify this system
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+TelecomB-DB-1,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+TelecomB-DB-1,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+TelecomB-DB-1,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+TelecomB-DB-1,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+TelecomB-DB-1,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+TelecomB-DB-1,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+TelecomB-DB-1,VerifyCoredump,success,,Verifies there are no core dump files.,System
+TelecomB-DB-1,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+TelecomB-DB-1,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+TelecomB-DB-1,VerifyMemoryUtilization,failure,Device has reported a high memory usage - Expected: < 75% Actual: 88.02%,Verifies whether the memory utilization is below 75%.,System
+TelecomB-DB-1,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+TelecomB-DB-1,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+TelecomB-DB-1,VerifyVxlanConfigSanity,success,,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+TelecomB-DB-2,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
+TelecomB-DB-2,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+TelecomB-DB-2,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+TelecomB-DB-2,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+TelecomB-DB-2,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+TelecomB-DB-2,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+TelecomB-DB-2,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on cEOSLab,Verifies the status of power supply fans and all fan trays.,Hardware
+TelecomB-DB-2,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on cEOSLab,Verifies the power supplies state and input voltage.,Hardware
+TelecomB-DB-2,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on cEOSLab,Verifies the device's system cooling status.,Hardware
+TelecomB-DB-2,VerifyTemperature,skipped,VerifyTemperature test is not supported on cEOSLab,Verifies if the device temperature is within acceptable limits.,Hardware
+TelecomB-DB-2,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on cEOSLab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+TelecomB-DB-2,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+TelecomB-DB-2,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+TelecomB-DB-2,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+TelecomB-DB-2,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+TelecomB-DB-2,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+TelecomB-DB-2,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+TelecomB-DB-2,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+TelecomB-DB-2,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on cEOSLab,Verifies there are no interface storm-control drop counters.,Interfaces
+TelecomB-DB-2,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Mar 27 12:37:13 50b1e393847b NorCalInit: %HARDWARE-0-SYSTEM_IDENTIFICATION_FAILED: Failed to identify this system
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+TelecomB-DB-2,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+TelecomB-DB-2,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+TelecomB-DB-2,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+TelecomB-DB-2,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+TelecomB-DB-2,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+TelecomB-DB-2,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+TelecomB-DB-2,VerifyCoredump,success,,Verifies there are no core dump files.,System
+TelecomB-DB-2,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+TelecomB-DB-2,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+TelecomB-DB-2,VerifyMemoryUtilization,failure,Device has reported a high memory usage - Expected: < 75% Actual: 87.95%,Verifies whether the memory utilization is below 75%.,System
+TelecomB-DB-2,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+TelecomB-DB-2,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+TelecomB-DB-2,VerifyVxlanConfigSanity,success,,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+TelecomB-DL-1,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
+TelecomB-DL-1,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+TelecomB-DL-1,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+TelecomB-DL-1,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+TelecomB-DL-1,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+TelecomB-DL-1,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+TelecomB-DL-1,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on cEOSLab,Verifies the status of power supply fans and all fan trays.,Hardware
+TelecomB-DL-1,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on cEOSLab,Verifies the power supplies state and input voltage.,Hardware
+TelecomB-DL-1,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on cEOSLab,Verifies the device's system cooling status.,Hardware
+TelecomB-DL-1,VerifyTemperature,skipped,VerifyTemperature test is not supported on cEOSLab,Verifies if the device temperature is within acceptable limits.,Hardware
+TelecomB-DL-1,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on cEOSLab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+TelecomB-DL-1,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+TelecomB-DL-1,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+TelecomB-DL-1,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+TelecomB-DL-1,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+TelecomB-DL-1,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+TelecomB-DL-1,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+TelecomB-DL-1,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+TelecomB-DL-1,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on cEOSLab,Verifies there are no interface storm-control drop counters.,Interfaces
+TelecomB-DL-1,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Mar 27 12:36:58 6d99554946d5 NorCalInit: %HARDWARE-0-SYSTEM_IDENTIFICATION_FAILED: Failed to identify this system
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+TelecomB-DL-1,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+TelecomB-DL-1,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+TelecomB-DL-1,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+TelecomB-DL-1,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+TelecomB-DL-1,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+TelecomB-DL-1,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+TelecomB-DL-1,VerifyCoredump,success,,Verifies there are no core dump files.,System
+TelecomB-DL-1,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+TelecomB-DL-1,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+TelecomB-DL-1,VerifyMemoryUtilization,failure,Device has reported a high memory usage - Expected: < 75% Actual: 87.96%,Verifies whether the memory utilization is below 75%.,System
+TelecomB-DL-1,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+TelecomB-DL-1,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+TelecomB-DL-1,VerifyVxlanConfigSanity,success,,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+TelecomB-DL-2,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
+TelecomB-DL-2,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+TelecomB-DL-2,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+TelecomB-DL-2,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+TelecomB-DL-2,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+TelecomB-DL-2,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+TelecomB-DL-2,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on cEOSLab,Verifies the status of power supply fans and all fan trays.,Hardware
+TelecomB-DL-2,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on cEOSLab,Verifies the power supplies state and input voltage.,Hardware
+TelecomB-DL-2,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on cEOSLab,Verifies the device's system cooling status.,Hardware
+TelecomB-DL-2,VerifyTemperature,skipped,VerifyTemperature test is not supported on cEOSLab,Verifies if the device temperature is within acceptable limits.,Hardware
+TelecomB-DL-2,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on cEOSLab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+TelecomB-DL-2,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+TelecomB-DL-2,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+TelecomB-DL-2,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+TelecomB-DL-2,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+TelecomB-DL-2,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+TelecomB-DL-2,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+TelecomB-DL-2,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+TelecomB-DL-2,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on cEOSLab,Verifies there are no interface storm-control drop counters.,Interfaces
+TelecomB-DL-2,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Mar 27 12:37:00 6398e4e14d7e NorCalInit: %HARDWARE-0-SYSTEM_IDENTIFICATION_FAILED: Failed to identify this system
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+TelecomB-DL-2,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+TelecomB-DL-2,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+TelecomB-DL-2,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+TelecomB-DL-2,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+TelecomB-DL-2,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+TelecomB-DL-2,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+TelecomB-DL-2,VerifyCoredump,success,,Verifies there are no core dump files.,System
+TelecomB-DL-2,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+TelecomB-DL-2,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+TelecomB-DL-2,VerifyMemoryUtilization,failure,Device has reported a high memory usage - Expected: < 75% Actual: 88.53%,Verifies whether the memory utilization is below 75%.,System
+TelecomB-DL-2,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+TelecomB-DL-2,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+TelecomB-DL-2,VerifyVxlanConfigSanity,success,,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+TelecomB-DS-1,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
+TelecomB-DS-1,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+TelecomB-DS-1,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+TelecomB-DS-1,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+TelecomB-DS-1,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+TelecomB-DS-1,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+TelecomB-DS-1,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on cEOSLab,Verifies the status of power supply fans and all fan trays.,Hardware
+TelecomB-DS-1,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on cEOSLab,Verifies the power supplies state and input voltage.,Hardware
+TelecomB-DS-1,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on cEOSLab,Verifies the device's system cooling status.,Hardware
+TelecomB-DS-1,VerifyTemperature,skipped,VerifyTemperature test is not supported on cEOSLab,Verifies if the device temperature is within acceptable limits.,Hardware
+TelecomB-DS-1,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on cEOSLab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+TelecomB-DS-1,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+TelecomB-DS-1,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+TelecomB-DS-1,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+TelecomB-DS-1,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+TelecomB-DS-1,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+TelecomB-DS-1,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on cEOSLab,Verifies there are no interface storm-control drop counters.,Interfaces
+TelecomB-DS-1,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Mar 27 12:36:45 dcdd58c96e90 NorCalInit: %HARDWARE-0-SYSTEM_IDENTIFICATION_FAILED: Failed to identify this system
+ Mar 27 14:29:28 TelecomB-DS-1 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.250.2.3 (VRF default AS 65201) 6/7 (Cease/connection collision resolution) 0 bytes 
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+TelecomB-DS-1,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+TelecomB-DS-1,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+TelecomB-DS-1,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+TelecomB-DS-1,VerifyCoredump,success,,Verifies there are no core dump files.,System
+TelecomB-DS-1,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+TelecomB-DS-1,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+TelecomB-DS-1,VerifyMemoryUtilization,failure,Device has reported a high memory usage - Expected: < 75% Actual: 88.03%,Verifies whether the memory utilization is below 75%.,System
+TelecomB-DS-1,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+TelecomB-DS-1,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+TelecomB-DS-2,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
+TelecomB-DS-2,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+TelecomB-DS-2,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+TelecomB-DS-2,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+TelecomB-DS-2,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+TelecomB-DS-2,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+TelecomB-DS-2,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on cEOSLab,Verifies the status of power supply fans and all fan trays.,Hardware
+TelecomB-DS-2,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on cEOSLab,Verifies the power supplies state and input voltage.,Hardware
+TelecomB-DS-2,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on cEOSLab,Verifies the device's system cooling status.,Hardware
+TelecomB-DS-2,VerifyTemperature,skipped,VerifyTemperature test is not supported on cEOSLab,Verifies if the device temperature is within acceptable limits.,Hardware
+TelecomB-DS-2,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on cEOSLab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+TelecomB-DS-2,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+TelecomB-DS-2,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+TelecomB-DS-2,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+TelecomB-DS-2,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+TelecomB-DS-2,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+TelecomB-DS-2,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on cEOSLab,Verifies there are no interface storm-control drop counters.,Interfaces
+TelecomB-DS-2,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Mar 27 12:36:48 60d9a05ba2e7 NorCalInit: %HARDWARE-0-SYSTEM_IDENTIFICATION_FAILED: Failed to identify this system
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+TelecomB-DS-2,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+TelecomB-DS-2,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+TelecomB-DS-2,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+TelecomB-DS-2,VerifyCoredump,success,,Verifies there are no core dump files.,System
+TelecomB-DS-2,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+TelecomB-DS-2,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+TelecomB-DS-2,VerifyMemoryUtilization,failure,Device has reported a high memory usage - Expected: < 75% Actual: 87.99%,Verifies whether the memory utilization is below 75%.,System
+TelecomB-DS-2,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+TelecomB-DS-2,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+TelecomB-DV-1,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
+TelecomB-DV-1,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+TelecomB-DV-1,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+TelecomB-DV-1,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+TelecomB-DV-1,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+TelecomB-DV-1,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+TelecomB-DV-1,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on cEOSLab,Verifies the status of power supply fans and all fan trays.,Hardware
+TelecomB-DV-1,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on cEOSLab,Verifies the power supplies state and input voltage.,Hardware
+TelecomB-DV-1,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on cEOSLab,Verifies the device's system cooling status.,Hardware
+TelecomB-DV-1,VerifyTemperature,skipped,VerifyTemperature test is not supported on cEOSLab,Verifies if the device temperature is within acceptable limits.,Hardware
+TelecomB-DV-1,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on cEOSLab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+TelecomB-DV-1,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+TelecomB-DV-1,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+TelecomB-DV-1,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+TelecomB-DV-1,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+TelecomB-DV-1,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+TelecomB-DV-1,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+TelecomB-DV-1,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+TelecomB-DV-1,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on cEOSLab,Verifies there are no interface storm-control drop counters.,Interfaces
+TelecomB-DV-1,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Mar 27 12:36:50 f9cb207d196e NorCalInit: %HARDWARE-0-SYSTEM_IDENTIFICATION_FAILED: Failed to identify this system
+ Mar 27 14:29:28 TelecomB-DV-1 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.250.2.1 (VRF default AS 65200) 6/7 (Cease/connection collision resolution) 0 bytes 
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+TelecomB-DV-1,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+TelecomB-DV-1,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+TelecomB-DV-1,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+TelecomB-DV-1,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+TelecomB-DV-1,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+TelecomB-DV-1,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+TelecomB-DV-1,VerifyCoredump,success,,Verifies there are no core dump files.,System
+TelecomB-DV-1,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+TelecomB-DV-1,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+TelecomB-DV-1,VerifyMemoryUtilization,failure,Device has reported a high memory usage - Expected: < 75% Actual: 88.06%,Verifies whether the memory utilization is below 75%.,System
+TelecomB-DV-1,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+TelecomB-DV-1,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+TelecomB-DV-1,VerifyVxlanConfigSanity,success,,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+TelecomB-DV-2,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
+TelecomB-DV-2,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+TelecomB-DV-2,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+TelecomB-DV-2,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+TelecomB-DV-2,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+TelecomB-DV-2,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+TelecomB-DV-2,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on cEOSLab,Verifies the status of power supply fans and all fan trays.,Hardware
+TelecomB-DV-2,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on cEOSLab,Verifies the power supplies state and input voltage.,Hardware
+TelecomB-DV-2,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on cEOSLab,Verifies the device's system cooling status.,Hardware
+TelecomB-DV-2,VerifyTemperature,skipped,VerifyTemperature test is not supported on cEOSLab,Verifies if the device temperature is within acceptable limits.,Hardware
+TelecomB-DV-2,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on cEOSLab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+TelecomB-DV-2,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+TelecomB-DV-2,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+TelecomB-DV-2,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+TelecomB-DV-2,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+TelecomB-DV-2,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+TelecomB-DV-2,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+TelecomB-DV-2,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+TelecomB-DV-2,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on cEOSLab,Verifies there are no interface storm-control drop counters.,Interfaces
+TelecomB-DV-2,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Mar 27 12:36:53 f719b1eb8ca0 NorCalInit: %HARDWARE-0-SYSTEM_IDENTIFICATION_FAILED: Failed to identify this system
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+TelecomB-DV-2,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+TelecomB-DV-2,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+TelecomB-DV-2,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+TelecomB-DV-2,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+TelecomB-DV-2,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+TelecomB-DV-2,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+TelecomB-DV-2,VerifyCoredump,success,,Verifies there are no core dump files.,System
+TelecomB-DV-2,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+TelecomB-DV-2,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+TelecomB-DV-2,VerifyMemoryUtilization,failure,Device has reported a high memory usage - Expected: < 75% Actual: 87.95%,Verifies whether the memory utilization is below 75%.,System
+TelecomB-DV-2,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+TelecomB-DV-2,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+TelecomB-DV-2,VerifyVxlanConfigSanity,success,,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
