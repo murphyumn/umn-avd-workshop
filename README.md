@@ -8,7 +8,30 @@ The ATD lab is used to create the L3LS EVPN/VXLAN Dual Data Center topology belo
 
 ## Lap Prep - Customized for UoMN Workshop
 
-**STEP #1** - Update Lab to AVD 5.7.3
+**STEP #1 - Fork Repository**
+
+In GitHub, fork the following [repository](https://github.com/mthiel117/umn-avd-workshop.git).
+
+
+**STEP #2 - Clone Forked Repository to Lab environment**
+
+Replace xxxxxxxxx with yoiur github path.
+
+```bash
+cd labfiles
+git clone https://github.com/xxxxxxxxxx/umn-avd-workshop.git
+```
+
+**STEP #3 - Add Git Settings**
+
+Setup Git config for your username and email.  These values are used for Git commits and logs.
+
+```bash
+git config --global user.name "FirstName LastName"
+git config --global user.email "name@example.com"
+```
+
+**STEP #4 - Update Lab to AVD 5.7.3**
 
 ```bash
 pip install "pyavd[ansible]==5.7.3"
@@ -18,19 +41,19 @@ ansible-galaxy collection install arista.avd:==5.7.3
 ansible-galaxy collection list
 ```
 
-**STEP #2** - Reset nodes to undefined container in CVP - ***Verify CVP is running before executing this command***
+**STEP #5 - Reset nodes to undefined container in CVP** - ***IMPORTANT: Verify CVP is running before executing this command***
 
 ```bash
 make reset_to_undefined
 ```
 
-**STEP #3** - Apply base configs to Lab nodes
+**STEP #6 - Apply base configs to Lab nodes**
 
 ```bash
 make preplab
 ```
 
-**STEP #4** - Export CVP Service Account token to env variable CV_TOKEN
+**STEP #7 - Export CVP Service Account token to env variable CV_TOKEN**
 
 If you wish to push configuration to nodes with CVP, you will need to create a Service Account Token and insert it below.
 
