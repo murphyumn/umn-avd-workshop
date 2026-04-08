@@ -299,6 +299,7 @@ vlan internal order ascending range 1006 1199
 | 20 | Twenty | - |
 | 30 | Thirty | - |
 | 40 | Forty | - |
+| 55 | FiftyFive_Test | - |
 | 3001 | MLAG_L3_VRF_PROD | MLAG |
 | 4093 | MLAG_L3 | MLAG |
 | 4094 | MLAG | MLAG |
@@ -318,6 +319,9 @@ vlan 30
 !
 vlan 40
    name Forty
+!
+vlan 55
+   name FiftyFive_Test
 !
 vlan 3001
    name MLAG_L3_VRF_PROD
@@ -464,6 +468,7 @@ interface Loopback1
 | Vlan20 | Twenty | PROD | - | False |
 | Vlan30 | Thirty | PROD | - | False |
 | Vlan40 | Forty | PROD | - | False |
+| Vlan55 | FiftyFive_Test | PROD | - | False |
 | Vlan3001 | MLAG_L3_VRF_PROD | PROD | 1500 | False |
 | Vlan4093 | MLAG_L3 | default | 1500 | False |
 | Vlan4094 | MLAG | default | 1500 | False |
@@ -476,6 +481,7 @@ interface Loopback1
 | Vlan20 |  PROD  |  -  |  10.20.20.1/24  |  -  |  -  |  -  |
 | Vlan30 |  PROD  |  -  |  10.30.30.1/24  |  -  |  -  |  -  |
 | Vlan40 |  PROD  |  -  |  10.40.40.1/24  |  -  |  -  |  -  |
+| Vlan55 |  PROD  |  -  |  10.40.55.1/24  |  -  |  -  |  -  |
 | Vlan3001 |  PROD  |  10.252.1.5/31  |  -  |  -  |  -  |  -  |
 | Vlan4093 |  default  |  10.252.1.5/31  |  -  |  -  |  -  |  -  |
 | Vlan4094 |  default  |  10.251.1.5/31  |  -  |  -  |  -  |  -  |
@@ -507,6 +513,12 @@ interface Vlan40
    no shutdown
    vrf PROD
    ip address virtual 10.40.40.1/24
+!
+interface Vlan55
+   description FiftyFive_Test
+   no shutdown
+   vrf PROD
+   ip address virtual 10.40.55.1/24
 !
 interface Vlan3001
    description MLAG_L3_VRF_PROD
@@ -547,6 +559,7 @@ interface Vlan4094
 | 20 | 10020 | - | - |
 | 30 | 10030 | - | - |
 | 40 | 10040 | - | - |
+| 55 | 10055 | - | - |
 
 ##### VRF to VNI and Multicast Group Mappings
 
@@ -567,6 +580,7 @@ interface Vxlan1
    vxlan vlan 20 vni 10020
    vxlan vlan 30 vni 10030
    vxlan vlan 40 vni 10040
+   vxlan vlan 55 vni 10055
    vxlan vrf PROD vni 50001
 ```
 
@@ -709,6 +723,7 @@ ASN Notation: asplain
 | 20 | 10.250.1.6:10020 | 10020:10020 | - | - | learned |
 | 30 | 10.250.1.6:10030 | 10030:10030 | - | - | learned |
 | 40 | 10.250.1.6:10040 | 10040:10040 | - | - | learned |
+| 55 | 10.250.1.6:10055 | 10055:10055 | - | - | learned |
 
 #### Router BGP VRFs
 
@@ -777,6 +792,11 @@ router bgp 65102
    vlan 40
       rd 10.250.1.6:10040
       route-target both 10040:10040
+      redistribute learned
+   !
+   vlan 55
+      rd 10.250.1.6:10055
+      route-target both 10055:10055
       redistribute learned
    !
    address-family evpn
