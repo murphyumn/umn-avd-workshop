@@ -19,54 +19,54 @@ enable_password:
   disabled: true
 ethernet_interfaces:
 - name: Ethernet1
-  description: MLAG_AOC-DB-1_Ethernet1
+  description: MLAG_TelecomB-DL-1_Ethernet1
   shutdown: false
   channel_group:
     id: 1
     mode: active
-  peer: AOC-DB-1
+  peer: TelecomB-DL-1
   peer_interface: Ethernet1
   peer_type: mlag_peer
 - name: Ethernet6
-  description: MLAG_AOC-DB-1_Ethernet6
+  description: MLAG_TelecomB-DL-1_Ethernet6
   shutdown: false
   channel_group:
     id: 1
     mode: active
-  peer: AOC-DB-1
+  peer: TelecomB-DL-1
   peer_interface: Ethernet6
   peer_type: mlag_peer
 - name: Ethernet2
-  description: P2P_AOC-DS-1_Ethernet8
+  description: P2P_TelecomB-DS-1_Ethernet5
   shutdown: false
   mtu: 1500
-  ip_address: 172.16.1.21/31
-  peer: AOC-DS-1
-  peer_interface: Ethernet8
+  ip_address: 172.16.2.13/31
+  peer: TelecomB-DS-1
+  peer_interface: Ethernet5
   peer_type: spine
   switchport:
     enabled: false
 - name: Ethernet3
-  description: P2P_AOC-DS-2_Ethernet8
+  description: P2P_TelecomB-DS-2_Ethernet5
   shutdown: false
   mtu: 1500
-  ip_address: 172.16.1.23/31
-  peer: AOC-DS-2
-  peer_interface: Ethernet8
+  ip_address: 172.16.2.15/31
+  peer: TelecomB-DS-2
+  peer_interface: Ethernet5
   peer_type: spine
   switchport:
     enabled: false
-- name: Ethernet5
-  description: P2P_TelecomB-DB-2_Ethernet5
+- name: Ethernet4
+  description: SERVER_TelecomB-HOST-2_eth2
   shutdown: false
-  mtu: 1500
-  ip_address: 172.16.255.2/31
-  peer: TelecomB-DB-2
-  peer_interface: Ethernet5
-  peer_type: other
-  switchport:
-    enabled: false
-hostname: AOC-DB-2
+  channel_group:
+    id: 4
+    mode: active
+  peer: TelecomB-HOST-2
+  peer_interface: eth2
+  peer_type: server
+  port_profile: PP-VLAN40
+hostname: TelecomB-DL-2
 ip_domain_lookup:
   source_interfaces:
   - name: Management0
@@ -88,11 +88,11 @@ loopback_interfaces:
 - name: Loopback0
   description: ROUTER_ID
   shutdown: false
-  ip_address: 10.250.1.8/32
+  ip_address: 10.250.2.6/32
 - name: Loopback1
   description: VXLAN_TUNNEL_SOURCE
   shutdown: false
-  ip_address: 10.255.1.7/32
+  ip_address: 10.255.2.5/32
 management_api_http:
   enable_https: true
   enable_vrfs:
@@ -102,17 +102,17 @@ management_interfaces:
   description: OOB_MANAGEMENT
   shutdown: false
   vrf: default
-  ip_address: 192.168.0.101/24
+  ip_address: 192.168.0.25/24
   type: oob
   gateway: 192.168.0.1
 metadata:
   is_deployed: true
   platform: cEOS
-  fabric_name: AOC_FABRIC
+  fabric_name: TelecomB_FABRIC
 mlag_configuration:
-  domain_id: S1_BRDR
+  domain_id: S2_RACK2
   local_interface: Vlan4094
-  peer_address: 10.251.1.8
+  peer_address: 10.251.2.4
   peer_link: Port-Channel1
   reload_delay_mlag: '300'
   reload_delay_non_mlag: '330'
@@ -127,7 +127,7 @@ ntp:
     vrf: default
 port_channel_interfaces:
 - name: Port-Channel1
-  description: MLAG_AOC-DB-1_Port-Channel1
+  description: MLAG_TelecomB-DL-1_Port-Channel1
   shutdown: false
   switchport:
     enabled: true
@@ -135,17 +135,26 @@ port_channel_interfaces:
     trunk:
       groups:
       - MLAG
+- name: Port-Channel4
+  description: SERVER_TelecomB-HOST-2
+  shutdown: false
+  mlag: 4
+  spanning_tree_portfast: edge
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 40
 prefix_lists:
 - name: PL-LOOPBACKS-EVPN-OVERLAY
   sequence_numbers:
   - sequence: 10
-    action: permit 10.250.1.0/24 eq 32
+    action: permit 10.250.2.0/24 eq 32
   - sequence: 20
-    action: permit 10.255.1.0/24 eq 32
+    action: permit 10.255.2.0/24 eq 32
 - name: PL-MLAG-PEER-VRFS
   sequence_numbers:
   - sequence: 10
-    action: permit 10.252.1.8/31
+    action: permit 10.252.2.4/31
 route_maps:
 - name: RM-MLAG-PEER-IN
   sequence_numbers:
@@ -174,8 +183,8 @@ router_bfd:
     min_rx: 300
     multiplier: 3
 router_bgp:
-  as: '65103'
-  router_id: 10.250.1.8
+  as: '65202'
+  router_id: 10.250.2.6
   maximum_paths:
     paths: 4
     ecmp: 4
@@ -185,8 +194,8 @@ router_bgp:
   peer_groups:
   - name: MLAG-IPv4-UNDERLAY-PEER
     type: ipv4
-    remote_as: '65103'
-    description: AOC-DB-1
+    remote_as: '65202'
+    description: TelecomB-DL-1
     next_hop_self: true
     password: 4b21pAdCvWeAqpcKDFMdWw==
     send_community: all
@@ -206,67 +215,62 @@ router_bgp:
     send_community: all
     maximum_routes: 0
   neighbors:
-  - ip_address: 10.252.1.8
+  - ip_address: 10.252.2.4
     peer_group: MLAG-IPv4-UNDERLAY-PEER
-    peer: AOC-DB-1
-    description: AOC-DB-1_Vlan4093
-  - ip_address: 172.16.1.20
+    peer: TelecomB-DL-1
+    description: TelecomB-DL-1_Vlan4093
+  - ip_address: 172.16.2.12
     peer_group: IPv4-UNDERLAY-PEERS
-    remote_as: '65100'
-    peer: AOC-DS-1
-    description: AOC-DS-1_Ethernet8
-  - ip_address: 172.16.1.22
+    remote_as: '65200'
+    peer: TelecomB-DS-1
+    description: TelecomB-DS-1_Ethernet5
+  - ip_address: 172.16.2.14
     peer_group: IPv4-UNDERLAY-PEERS
-    remote_as: '65100'
-    peer: AOC-DS-2
-    description: AOC-DS-2_Ethernet8
-  - ip_address: 10.250.1.1
+    remote_as: '65200'
+    peer: TelecomB-DS-2
+    description: TelecomB-DS-2_Ethernet5
+  - ip_address: 10.250.2.1
     peer_group: EVPN-OVERLAY-PEERS
-    remote_as: '65100'
-    peer: AOC-DS-1
-    description: AOC-DS-1_Loopback0
-  - ip_address: 10.250.1.2
+    remote_as: '65200'
+    peer: TelecomB-DS-1
+    description: TelecomB-DS-1_Loopback0
+  - ip_address: 10.250.2.2
     peer_group: EVPN-OVERLAY-PEERS
-    remote_as: '65100'
-    peer: AOC-DS-2
-    description: AOC-DS-2_Loopback0
-  - ip_address: 172.16.255.3
-    peer_group: IPv4-UNDERLAY-PEERS
-    remote_as: '65203'
-    peer: TelecomB-DB-2
-    description: TelecomB-DB-2
+    remote_as: '65200'
+    peer: TelecomB-DS-2
+    description: TelecomB-DS-2_Loopback0
   redistribute:
     connected:
       enabled: true
       route_map: RM-CONN-2-BGP
   vlans:
   - id: 10
-    tenant: AOC_FABRIC
-    rd: 10.250.1.8:10010
+    tenant: TelecomB_FABRIC
+    rd: 10.250.2.6:10010
     route_targets:
       both:
       - 10010:10010
     redistribute_routes:
     - learned
   - id: 20
-    tenant: AOC_FABRIC
-    rd: 10.250.1.8:10020
+    tenant: TelecomB_FABRIC
+    rd: 10.250.2.6:10020
     route_targets:
       both:
       - 10020:10020
     redistribute_routes:
     - learned
   - id: 30
-    tenant: AOC_FABRIC
-    rd: 10.250.1.8:10030
+    tenant: TelecomB_FABRIC
+    rd: 10.250.2.6:10030
     route_targets:
       both:
       - 10030:10030
     redistribute_routes:
     - learned
   - id: 40
-    tenant: AOC_FABRIC
-    rd: 10.250.1.8:10040
+    tenant: TelecomB_FABRIC
+    rd: 10.250.2.6:10040
     route_targets:
       both:
       - 10040:10040
@@ -286,7 +290,7 @@ router_bgp:
       activate: false
   vrfs:
   - name: PROD
-    rd: 10.250.1.8:50001
+    rd: 10.250.2.6:50001
     route_targets:
       import:
       - address_family: evpn
@@ -296,11 +300,11 @@ router_bgp:
       - address_family: evpn
         route_targets:
         - 50001:50001
-    router_id: 10.250.1.8
+    router_id: 10.250.2.6
     neighbors:
-    - ip_address: 10.252.1.8
+    - ip_address: 10.252.2.4
       peer_group: MLAG-IPv4-UNDERLAY-PEER
-      description: AOC-DB-1_Vlan3001
+      description: TelecomB-DL-1_Vlan3001
     redistribute:
       connected:
         enabled: true
@@ -321,12 +325,12 @@ vlan_interfaces:
 - name: Vlan4093
   description: MLAG_L3
   shutdown: false
-  ip_address: 10.252.1.9/31
+  ip_address: 10.252.2.5/31
   mtu: 1500
 - name: Vlan4094
   description: MLAG
   shutdown: false
-  ip_address: 10.251.1.9/31
+  ip_address: 10.251.2.5/31
   mtu: 1500
   no_autostate: true
 - name: Vlan10
@@ -334,32 +338,32 @@ vlan_interfaces:
   shutdown: false
   vrf: PROD
   ip_address_virtual: 10.10.10.1/24
-  tenant: AOC_FABRIC
+  tenant: TelecomB_FABRIC
 - name: Vlan20
   description: Twenty
   shutdown: false
   vrf: PROD
   ip_address_virtual: 10.20.20.1/24
-  tenant: AOC_FABRIC
+  tenant: TelecomB_FABRIC
 - name: Vlan30
   description: Thirty
   shutdown: false
   vrf: PROD
   ip_address_virtual: 10.30.30.1/24
-  tenant: AOC_FABRIC
+  tenant: TelecomB_FABRIC
 - name: Vlan40
   description: Forty
   shutdown: false
   vrf: PROD
   ip_address_virtual: 10.40.40.1/24
-  tenant: AOC_FABRIC
+  tenant: TelecomB_FABRIC
 - name: Vlan3001
   description: MLAG_L3_VRF_PROD
   shutdown: false
   vrf: PROD
-  ip_address: 10.252.1.9/31
+  ip_address: 10.252.2.5/31
   mtu: 1500
-  tenant: AOC_FABRIC
+  tenant: TelecomB_FABRIC
   type: underlay_peering
 vlan_internal_order:
   allocation: ascending
@@ -379,30 +383,30 @@ vlans:
   tenant: system
 - id: 10
   name: Ten
-  tenant: AOC_FABRIC
+  tenant: TelecomB_FABRIC
 - id: 20
   name: Twenty
-  tenant: AOC_FABRIC
+  tenant: TelecomB_FABRIC
 - id: 30
   name: Thirty
-  tenant: AOC_FABRIC
+  tenant: TelecomB_FABRIC
 - id: 40
   name: Forty
-  tenant: AOC_FABRIC
+  tenant: TelecomB_FABRIC
 - id: 3001
   name: MLAG_L3_VRF_PROD
   trunk_groups:
   - MLAG
-  tenant: AOC_FABRIC
+  tenant: TelecomB_FABRIC
 vrfs:
 - name: default
   ip_routing: false
 - name: PROD
   ip_routing: true
-  tenant: AOC_FABRIC
+  tenant: TelecomB_FABRIC
 vxlan_interface:
   vxlan1:
-    description: AOC-DB-2_VTEP
+    description: TelecomB-DL-2_VTEP
     vxlan:
       source_interface: Loopback1
       udp_port: 4789
